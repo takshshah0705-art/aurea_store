@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AUREA | Premium Fashion</title>
+
+    <meta
+        name="description"
+        content="Discover premium T-shirts and everyday essentials at AUREA."
+    >
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement">
+        FREE SHIPPING ON ORDERS ABOVE ₹999
+        <span> | </span>
+        DISCOVER THE AUREA COLLECTION
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="#" class="logo" aria-label="AUREA home">
+            AUREA<span>.</span>
+        </a>
+
+        <nav class="desktop-nav">
+            <a href="#shop" data-category="All">HOME</a>
+            <a href="#shop" data-category="T-Shirts">T-SHIRTS</a>
+            <a href="#shop" data-category="Undergarments">UNDERGARMENTS</a>
+            <a href="#shop" data-category="Premium">PREMIUM</a>
+        </nav>
+
+        <div class="header-actions">
+
+            <label class="search-box">
+                <span aria-hidden="true">⌕</span>
+                <input
+                    type="search"
+                    id="searchInput"
+                    placeholder="Search products..."
+                    aria-label="Search products"
+                >
+            </label>
+
+            <button
+                class="icon-button"
+                id="wishlistButton"
+                aria-label="Open wishlist"
+            >
+                ♡ <span class="count" id="wishlistCount">0</span>
+            </button>
+
+            <button
+                class="icon-button"
+                id="bagButton"
+                aria-label="Open shopping bag"
+            >
+                BAG <span class="count" id="bagCount">0</span>
+            </button>
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Toggle mobile navigation"
+            >
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- MOBILE NAVIGATION -->
+    <nav class="mobile-nav" id="mobileNav">
+        <a href="#shop" data-category="All">Home</a>
+        <a href="#shop" data-category="T-Shirts">T-Shirts</a>
+        <a href="#shop" data-category="Undergarments">Undergarments</a>
+        <a href="#shop" data-category="Premium">Premium Collection</a>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="hero-content">
+                <p class="eyebrow">THE NEW EVERYDAY</p>
+
+                <h1>
+                    Everyday essentials.<br>
+                    <span>Elevated.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover timeless T-shirts and everyday essentials
+                    designed for effortless style.
+                </p>
+
+                <a href="#shop" class="primary-button">
+                    EXPLORE COLLECTION →
+                </a>
+
+                <div class="hero-note">
+                    PREMIUM FEEL. EVERYDAY COMFORT.
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-circle"></div>
+
+                <div class="hero-card">
+                    <span class="hero-card-small">AUREA ESSENTIALS</span>
+                    <div class="hero-card-title">LESS,<br>BETTER.</div>
+                    <div class="hero-card-bottom">
+                        THE EVERYDAY COLLECTION
+                    </div>
+                </div>
+
+                <div class="hero-badge">
+                    NEW<br>COLLECTION
+                </div>
+            </div>
+
+        </section>
+
+        <!-- BENEFITS -->
+        <section class="benefits">
+
+            <div>
+                <span>✦</span>
+                <p>EVERYDAY ESSENTIALS</p>
+            </div>
+
+            <div>
+                <span>◇</span>
+                <p>COMFORT-FIRST STYLES</p>
+            </div>
+
+            <div>
+                <span>↗</span>
+                <p>SECURE CHECKOUT</p>
+            </div>
+
+            <div>
+                <span>♡</span>
+                <p>MADE FOR YOUR STYLE</p>
+            </div>
+
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="section categories-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">FIND YOUR FIT</p>
+                    <h2>Shop by category</h2>
+                </div>
+            </div>
+
+            <div class="category-grid">
+
+                <button
+                    class="category-card category-tshirts"
+                    data-category="T-Shirts"
+                >
+                    <span class="category-number">01 / COLLECTION</span>
+                    <span class="category-name">T-SHIRTS</span>
+                    <span class="category-link">SHOP NOW →</span>
+                </button>
+
+                <button
+                    class="category-card category-underwear"
+                    data-category="Undergarments"
+                >
+                    <span class="category-number">02 / COLLECTION</span>
+                    <span class="category-name">UNDERGARMENTS</span>
+                    <span class="category-link">SHOP NOW →</span>
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- SHOP -->
+        <section class="section shop-section" id="shop">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">CURATED FOR YOU</p>
+                    <h2>Explore the collection</h2>
+                    <p class="muted" id="productCount">Loading collection...</p>
+                </div>
+
+                <button class="text-button" id="clearFilters">
+                    CLEAR FILTERS ×
+                </button>
+            </div>
+
+            <!-- FILTERS -->
+            <div class="filter-bar">
+
+                <label>
+                    Category
+                    <select id="categoryFilter">
+                        <option value="All">All products</option>
+                        <option value="T-Shirts">T-shirts</option>
+                        <option value="Undergarments">Undergarments</option>
+                    </select>
+                </label>
+
+                <label>
+                    Size
+                    <select id="sizeFilter">
+                        <option value="All">All sizes</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </label>
+
+                <label>
+                    Maximum price
+                    <select id="priceFilter">
+                        <option value="All">Any price</option>
+                        <option value="299">Under ₹299</option>
+                        <option value="499">Under ₹499</option>
+                        <option value="799">Under ₹799</option>
+                        <option value="999">Under ₹999</option>
+                    </select>
+                </label>
+
+                <label>
+                    Sort by
+                    <select id="sortFilter">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </label>
+
+            </div>
+
+            <!-- PRODUCTS ARE GENERATED BY JAVASCRIPT -->
+            <div class="product-grid" id="productGrid"></div>
+
+            <div class="empty-state" id="emptyState" hidden>
+                <h3>No products found</h3>
+                <p>Try changing your search or filters.</p>
+                <button class="primary-button" id="resetSearch">
+                    VIEW ALL PRODUCTS
+                </button>
+            </div>
+
+            <div class="pagination-info">
+                Showing <span id="visibleCount">0</span> products
+            </div>
+
+        </section>
+
+        <!-- PROMOTION -->
+        <section class="promo-banner">
+            <div>
+                <p class="eyebrow">THE AUREA STANDARD</p>
+                <h2>Good style starts<br>with the essentials.</h2>
+                <p>Build your everyday wardrobe, one essential at a time.</p>
+            </div>
+
+            <a href="#shop" class="light-button">SHOP COLLECTION →</a>
+        </section>
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter">
+
+            <p class="eyebrow">STAY IN THE LOOP</p>
+
+            <h2>A little more AUREA.</h2>
+
+            <p>
+                Get updates on new collections, launches and special offers.
+            </p>
+
+            <form id="newsletterForm" class="newsletter-form">
+                <input
+                    type="email"
+                    id="newsletterEmail"
+                    placeholder="Enter your email address"
+                    required
+                >
+
+                <button type="submit">SUBSCRIBE →</button>
+            </form>
+
+            <p id="newsletterMessage" class="form-message"></p>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div>
+                <a href="#" class="logo footer-logo">AUREA<span>.</span></a>
+
+                <p class="footer-description">
+                    Everyday essentials, thoughtfully selected.
+                </p>
+            </div>
+
+            <div>
+                <h3>SHOP</h3>
+                <a href="#shop" data-category="T-Shirts">T-shirts</a>
+                <a href="#shop" data-category="Undergarments">Undergarments</a>
+                <a href="#shop" data-category="All">All products</a>
+            </div>
+
+            <div>
+                <h3>YOUR ACCOUNT</h3>
+                <button id="footerWishlist">Wishlist</button>
+                <button id="footerBag">Shopping bag</button>
+                <button id="adminButton">Admin dashboard</button>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© <span id="currentYear"></span> AUREA.</span>
+            <span>STYLE FOR EVERY DAY.</span>
+        </div>
+
+    </footer>
+
+    <!-- GENERAL MODAL -->
+    <div class="modal-backdrop" id="modalBackdrop" hidden>
+
+        <section
+            class="modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+        >
+
+            <div class="modal-header">
+                <h2 id="modalTitle">AUREA</h2>
+
+                <button
+                    id="closeModal"
+                    class="close-button"
+                    aria-label="Close dialog"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="modal-content" id="modalContent"></div>
+
+        </section>
+
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+</body>
+</html>
